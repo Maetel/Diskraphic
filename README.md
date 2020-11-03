@@ -3,7 +3,7 @@
 - Analyzes your file system and visualizes it into a graphical form
 - This toy project is my 2nd python tutorial
 
-## Initial try - graphwise
+## Initial try - Graphwise
 
 Let's begin with the simplest style.  
 The longer(the darker), the larger file size.  
@@ -12,6 +12,39 @@ _FYI : Result image directory is excluded from the analysis_
 - **Grayscale** - Background intensity is the mean file size.
 - **RGB** - File size as Red, file name as Green, path as Blue. Of similar color means they're near in path.
   ![Graphwise](result/graphwise_gray.gif) ![Graphwise](result/graphwise_rgb.gif)
+
+## Dependency
+
+> Python3.8 (possibly lower versions of Python3 will fit)
+> OpenCV (possibly any version will fit)
+
+## Example
+
+- **Graphwise** - shown as above
+
+  > ```python
+  > from Visualizer import Graphwise
+  > from Navigator import Navigator
+  >
+  > viz = Graphwise()
+  > nav = Navigator()
+  > while viz.update(nav.read_next()):
+  >    pass
+  > stat = viz.stat()
+  > result_image = viz.visualize()
+  > ```
+
+- **Simplest** - returns a list, filled with all the materials
+  > ```python
+  > from Visualizer import Simplest
+  > from Navigator import Navigator
+  >
+  > viz = Simplest()
+  > nav = Navigator()
+  > while viz.update(nav.read_next()):
+  >    pass
+  > result_list = viz.visualize()
+  > ```
 
 ### These are the brainstorming materials
 

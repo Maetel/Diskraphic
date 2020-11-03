@@ -3,6 +3,16 @@
 - Analyzes your file system and visualizes it into a graphical form
 - This toy project is my 2nd python tutorial
 
+## Initial try - graphwise
+
+Let's begin with the simplest style.  
+The longer(the darker), the larger file size.  
+_FYI : Result image directory is excluded from the analysis_
+
+- **Grayscale** - Background intensity is the mean file size.
+- **RGB** - File size as Red, file name as Green, path as Blue
+  ![Graphwise](result/graphwise_gray.gif) ![Graphwise](result/graphwise_rgb.gif)
+
 ### These are the brainstorming materials
 
 ##### Core logic
@@ -23,6 +33,7 @@
 
 1. an image can be in grayscale (8bytes) or can be in rgb (24bytes) or rgba(32bytes)
    - how to visualize file attributes and directory structure is the main key
+1. Used
 1. **_The final image must be updatable for each iteration._** With this logic, I can extract the result each iteration, so that I can visualize it in a video form. Here is the pseudo code for the logic;
 
 ```python
@@ -40,6 +51,7 @@ while True:
    ![Tree](https://library.kissclipart.com/20180918/yeq/kissclipart-tree-grayscale-clipart-fir-grayscale-black-and-whi-1853b094d5b499c2.png)
 1. The result can be a disk (such traditional huh).
    ![Sonic wave](https://i.pinimg.com/originals/e2/65/15/e2651599c39a96d329e982fd0a169c51.png)
+   ![Disk usage](https://i.stack.imgur.com/42Daj.jpg)
 1. Or some kind of fractal pattern will be cool
    ![Fractal](https://cdn.shopify.com/s/files/1/0080/9176/2784/files/fractal_intro_grande.jpg?v=1549797078)
 1. Recursive design. Just google it. There are tons

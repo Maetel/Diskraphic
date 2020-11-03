@@ -15,7 +15,7 @@ _FYI : Result image directory is excluded from the analysis_
 
 ## Dependency
 
-> Python3.8 (possibly lower versions of Python3 will fit)
+> Python3.8 (possibly lower versions of Python3 will fit)  
 > OpenCV (possibly any version will fit)
 
 ## Example
@@ -80,13 +80,13 @@ while True:
 
 ##### Just ideas
 
-1. The result can be a tree (or trees for multiple drives), growing as the iteration goes on. Inaccessible dirs and files will be the root, it being the mass of inaccessible files' size compared to that of the accessibles.
+1. The result can be a tree (or trees for multiple drives), growing as the iteration goes on. Inaccessible dirs and files will be the root, it being the mass of inaccessible files' size compared to that of the accessibles.  
    ![Tree](https://library.kissclipart.com/20180918/yeq/kissclipart-tree-grayscale-clipart-fir-grayscale-black-and-whi-1853b094d5b499c2.png)
-1. The result can be a disk (such traditional huh).
-   ![Sonic wave](https://i.pinimg.com/originals/e2/65/15/e2651599c39a96d329e982fd0a169c51.png)
+1. The result can be a disk (such traditional huh).  
+   ![Sonic wave](https://i.pinimg.com/originals/e2/65/15/e2651599c39a96d329e982fd0a169c51.png)  
    ![Disk usage](https://i.stack.imgur.com/42Daj.jpg)
-1. Or some kind of fractal pattern will be cool
+1. Or some kind of fractal pattern will be cool  
    ![Fractal](https://cdn.shopify.com/s/files/1/0080/9176/2784/files/fractal_intro_grande.jpg?v=1549797078)
-1. Recursive design. Just google it. There are tons
+1. Recursive design. Just google it. There are tons  
    ![Recursive](https://i.pinimg.com/564x/0f/74/b7/0f74b792a692853a8bec3bc25788189f.jpg)
 1. Let's just begin from a small step. Don't impress myself too much from the beginning. Just do it.

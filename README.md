@@ -26,8 +26,9 @@ _FYI : Result image directory is excluded from the analysis_
   > from Visualizer import Graphwise
   > from Navigator import Navigator
   >
+  > path = "" #if not designated, set it to current path
   > viz = Graphwise()
-  > nav = Navigator()
+  > nav = Navigator(path)
   > while viz.update(nav.read_next()):
   >    pass
   > stat = viz.stat()
@@ -39,8 +40,9 @@ _FYI : Result image directory is excluded from the analysis_
   > from Visualizer import Simplest
   > from Navigator import Navigator
   >
+  > path = "" #if not designated, set it to current path
   > viz = Simplest()
-  > nav = Navigator()
+  > nav = Navigator(path)
   > while viz.update(nav.read_next()):
   >    pass
   > result_list = viz.visualize()

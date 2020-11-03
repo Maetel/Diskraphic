@@ -59,6 +59,7 @@ class Graphwise(IVisualizer):
         #reserve memory
         self.infos = [None] * self.MAX_SIZE
 
+    #TODO : unify these
     def _update_name(self, name):
         val = len(name)
         self.total_name_len += val
@@ -99,7 +100,6 @@ class Graphwise(IVisualizer):
         return (self.elem_idx, self.total_dirs, self.size_max, self.total_size)
 
     def visualize(self, width=500, height=500, grayscale=False):
-        #retval = np.zeros((height, width, 1), dtype=np.uint8)
         avg_intensity = _clamp(int(255 * (self.avg_size/self.size_max)), 0, 255)
         if grayscale:
             avg_intensity = 255 - avg_intensity
@@ -119,7 +119,8 @@ class Graphwise(IVisualizer):
         if not False:
             row_offset = 0.1
             for col, info in enumerate(valid_infos):
-                ratio = math.sqrt(info.size/ self.size_max)
+                ratio = math.sqrt(math.sqrt(info.size/ self.size_max))
+                #ratio = -math.log(info.size/ self.size_max, 2)
                 ratio = _clamp(ratio, 0, 1-row_offset)
                 mid_row = int(height/2)
                 row = int(_clamp(int(height * ratio), 0, height-1)/2)
@@ -142,24 +143,10 @@ class Graphwise(IVisualizer):
                     _g = int(name_dependency * name_ratio + 255 - name_dependency)
                     _b = int(path_dependency * path_ratio + 255 - path_dependency)
                     retval[mid_row - row : mid_row + row, col_begin:col_end] = (_r, _g, _b)
-
-        #rowwise
-        if False:
-            for row, info in enumerate(valid_infos):
-                ratio = info.size/self.size_max
-                col = _clamp(int(width * ratio), 0, width-1)
-                #col_begin = _clamp(int(col_wid * col), 0, width)
-                #col_end = _clamp(int(col_wid * (col+1)), 0, width)
-                row_begin = int(row_hi * row)
-                row_end = int(row_hi * (row+1))
-                intensity = 255 - int(255 * ratio)
-                #if not np.sum(retval[row_begin:row_end, 0:width-1]):
-                retval[row_begin:row_end, 0:width-1] = 255-intensity
-                retval[height - 1 - row_end : height - 1 - row_begin, width-1 - col : width-1] = intensity
         self.last_img = retval[:]
         return retval
     
-    def last_result(self):
+    def last_visualized(self):
         return self.last_img[:]
 
 if __name__ == "__main__":

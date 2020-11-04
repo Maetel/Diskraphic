@@ -11,14 +11,14 @@ _FYI : Result image directory is excluded from the analysis_
 
 - **Grayscale** - Background intensity is the mean file size.
 - **RGB** - File size as Red, file name as Green, path as Blue. Of similar color means they're near in path.
-- DNA-ish feature added. You can find it out at visualize().
+- DNA-ish feature added. You can find it out at visualize().  
   ![DNA](result/DNA_gray.gif) ![DNA](result/DNA_rgb.gif)
   ![Graphwise](result/graphwise_gray.gif) ![Graphwise](result/graphwise_rgb.gif)
 
 ## Dependency
 
 > Python3.8 (possibly lower versions of Python3 will fit)  
-> OpenCV (possibly any version will fit, used for general image processing)
+> OpenCV (possibly any version will fit, used for general image processing)  
 > Pillow (possibly any version will fit, used to export gif)
 
 ## Example

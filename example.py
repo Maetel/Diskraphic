@@ -1,16 +1,26 @@
 from Visualizer import Simplest, Graphwise
 from Navigator import Navigator
 import cv2 as cv
+from PIL import Image
 
 def graphwise():
     #setup
     viz = Graphwise()
     nav = Navigator()
     grayscale = True
-    wid, hi = 500,500
+    DNA_ish = not True
+    wid, hi = 400,400
+    gif_path = f'result/{"DNA" if DNA_ish else "graphwise"}_{"gray" if grayscale else "rgb"}.gif'
+    gif_duration = 4 #seconds
+    images = []
+    cv_cvt_format = cv.COLOR_GRAY2RGB if grayscale else cv.COLOR_BGR2RGB
+    def cv_img_to_PIL_img(cv_img):
+        return Image.fromarray(cv.cvtColor(cv_img, cv_cvt_format))
 
     #main logic
     while viz.update(nav.read_next()):
+        cv_img = viz.visualize(wid, hi, grayscale=grayscale, DNA_ish=DNA_ish)
+        images.append(cv_img_to_PIL_img(cv_img))
         pass
 
     #view results
@@ -22,9 +32,13 @@ def graphwise():
     print(f"\tMaximum file size : [{stat[2]}bytes]")
     print(f"\tTotal file size : [{stat[3]}bytes]")
 
-    result_image = viz.visualize(wid, hi, grayscale=grayscale)
-    #cv.imwrite("result/graphwise.jpg", result_image)
-    cv.imshow("Result", result_image)
+    if images:
+        print("Creating gif...")
+        images[0].save(gif_path, save_all=True, append_images=images[1:], optimize=True, duration=int((gif_duration*1000)/len(images)), loop=0)
+        print("GIF saving done")
+    
+
+    cv.imshow("Result", viz.visualize(wid, hi, grayscale=grayscale, DNA_ish=DNA_ish))
     cv.waitKey(0)
 
 def simplest():

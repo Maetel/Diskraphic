@@ -95,3 +95,5 @@ while True:
 1. Recursive design. Just google it. There are tons  
    ![Recursive](https://i.pinimg.com/564x/0f/74/b7/0f74b792a692853a8bec3bc25788189f.jpg)
 1. Let's just begin from a small step. Don't impress myself too much from the beginning. Just do it.
+
+1. File distribution into psychological test

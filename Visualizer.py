@@ -58,6 +58,10 @@ class Graphwise(IVisualizer):
         self.name_len_min, self.name_len_max = -1, -1
         self.path_len_min, self.path_len_max = -1, -1
         self.last_img = None
+        self.total_dirs = None
+        self.last_idx = None
+        
+        self.avg_size, self.avg_name_len, self.avg_path_len = None, None, None
 
         #reserve memory
         self.infos = [None] * self.MAX_SIZE

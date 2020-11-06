@@ -5,7 +5,7 @@ class FileInfo:
     def __init__(self, name, path, index, total_dirs):
         self.name = name
         self.path = path
-        self.full_path = f"{path}\\{name}"
+        self.full_path = f"{path}/{name}"
         self.size = os.stat(self.full_path).st_size
         self.index = index
         self.total_dirs = total_dirs
@@ -26,8 +26,8 @@ class Navigator:
         if not dir:
             dir = os.getcwdb().decode('utf-8')
             print(f"Navigator - Not a directory. Setting root directory to '{dir}'")
-        if not dir.endswith('\\'):
-            dir = dir + '\\'
+        if not dir.endswith('/'):
+            dir = dir + '/'
         if os.path.isdir(dir) and (not dir in self.dirs):
             self.dirs.append(dir)
             self.dirs.append(self._depth_counter)
@@ -52,7 +52,7 @@ class Navigator:
             self.dirs.popleft()
             self.total_dirs+=1
             for path in os.listdir(self.last_dir):
-                abs_path = f"{self.last_dir}\\{path}"
+                abs_path = f"{self.last_dir}/{path}"
                 if os.path.isfile(abs_path):
                     self.files.append(path) #handover relative file name
                 else:

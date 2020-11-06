@@ -2,6 +2,13 @@ from Visualizer import Simplest, Graphwise
 from Navigator import Navigator
 import cv2 as cv
 from PIL import Image
+import sys
+
+def is_gui():
+    if sys.stdin.isatty():
+        print("No gui environment")
+        return False
+    return True
 
 def graphwise():
     #setup
@@ -37,9 +44,9 @@ def graphwise():
         images[0].save(gif_path, save_all=True, append_images=images[1:], optimize=True, duration=int((gif_duration*1000)/len(images)), loop=0)
         print("GIF saving done")
     
-
-    cv.imshow("Result", viz.visualize(wid, hi, grayscale=grayscale, DNA_ish=DNA_ish))
-    cv.waitKey(0)
+    if is_gui():
+        cv.imshow("Result", viz.visualize(wid, hi, grayscale=grayscale, DNA_ish=DNA_ish))
+        cv.waitKey(0)
 
 def simplest():
     def print_simplest(list):
